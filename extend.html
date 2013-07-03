@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Zoop · Mystique</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Tim Roediger">
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/docs.css" rel="stylesheet">
+    <link href="js/google-code-prettify/prettify.css" rel="stylesheet">
+  </head>
+
+  <body onload="prettyPrint()">
+
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="./index.html">Mystique</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="./index.html">Home</a>
+              </li>
+              <li class="">
+                <a href="./getting-started.html">Get started</a>
+              </li>
+              <li class="">
+                <a href="./javascript.html">Javascript</a>
+              </li>
+              <li class="">
+                <a href="./php.html">PHP</a>
+              </li>
+              <li class="">
+                <a href="./validators.html">Validators</a>
+              </li>
+              <li class="">
+                <a href="./spec.html">Spec</a>
+              </li>
+              <li class="">
+                <a href="./extend.html">Extend</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>Extend</h1>
+    <p class="lead">Write your own Mystique compatible validators.</p>
+  </div>
+</header>
+
+
+  <div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <ul data-dojo-type="havok/widget/ListNav"
+            data-dojo-mixins="havok/widget/_AffixMixin, havok/widget/_ScrollSpyMixin"
+            data-dojo-props="
+               linkTemplate: '&lt;a role=&quot;navitem&quot; href=&quot;${href}&quot;&gt;&lt;i class=&quot;icon-chevron-right&quot;&gt;&lt;/i&gt; ${label}&lt;/a&gt;',
+               affixOffset: {top: 40, bottom: 0},
+               affixTarget: 'mainContent',
+               spyTarget: 'mainContent'
+            "
+            class="nav-stacked bs-docs-sidenav"
+        >
+        </ul>
+      </div>
+      <div class="span9" id="mainContent">
+
+        <section id="new" title="Create a new validator">
+  <div class="page-header">
+    <h1>Create a new validator</h1>
+  </div>
+
+    <p class="lead">Just override _isValid</p>
+
+    <p>To create a new validator, inherit from the Base validator, or one of the bundled validators, and override the <code>_isValid</code> method. Note that <code>_isValid</code> must return a Result object.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+        <p>Javascript is not a strictly object oriented language. However Mystique gives the Base object class like behavior. To subclass Base, pass the <code>extend</code> function and object to be mixed into the Base prototype.</p>
+<pre class="prettyprint linenums">
+define([
+    'mystique/Base',
+    'mystique/Result'
+],
+function(
+    Base,
+    Result
+){
+    // module:
+    //		mystique/Alpha
+
+    return Base.extend({
+
+        regex: /^[a-zA-Z]+$/,
+
+        _isValid: function(value){
+
+            var result = new Result({value: true});
+
+            if ( ! this.regex.test(value)){
+                result.set('value', false);
+                result.addMessage('alpha');
+            }
+
+            return result;
+        }
+    });
+});
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+        <p>Javascript is not a strictly object oriented language. However Mystique gives the Base object class like behavior. To subclass Base, pass the <code>extend</code> function and object to be mixed into the Base prototype.</p>
+<pre class="prettyprint linenums">
+var Alpha = mystique.Base.extend({
+
+    regex: /^[a-zA-Z]+$/,
+
+    _isValid: function(value){
+
+        var result = new mystique.Result({value: true});
+
+        if ( ! this.regex.test(value)){
+            result.set('value', false);
+            result.addMessage('alpha');
+        }
+
+        return result;
+    }
+});
+</pre>
+    </div>
+    <div title="PHP">
+<pre class="prettyprint linenums">
+namespace Zoop\Mystique;
+
+class Alpha extends Base
+{
+
+    protected $regex = '/^[a-zA-Z]+$/';
+
+    protected function _isValid($value){
+
+        $result = new Result(["value" => true]);
+
+        if ( ! preg_match($this->regex, $value)){
+            $result->setValue(false);
+            $result->addMessage('alpha');
+        }
+
+        return $result;
+    }
+}
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="tests" title="Unit Testing">
+  <div class="page-header">
+    <h1>Unit Testing</h1>
+  </div>
+
+    <p class="lead">One set of test data to rule them all</p>
+
+    <p>When creating validators it's a <i>really really</i> good idea to write unit tests for them. All bundled validators use a common set of json formatted test data located in <code>mystique/common/testdata</code>. Contributions and improvements to this test data are much appreciated.</p>
+
+    <h3>Javascript</h3>
+
+    <p>The javascript test suite is located under <code>mystique/js/mystique/test</code> and uses the dojo's doh unit testing framework. If you have dojo and dojo/utils installed, then you can run the tests with <code>runTests.html</code>.</p>
+
+    <h3>PHP</h3>
+
+    <p>The PHP test suite is located under <code>mystique/php/test</code> and uses phpUnit.</p>
+
+</section>
+
+      </div>
+    </div>
+  </div>
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+      <div class="container">
+        <p>Created by <a href="http://github.com/superdweebie">@superdweebie</a> and <a href="http://github.com/crimsonronin">@crimsonronin</a>.</p>
+        <p>Code licensed under MIT.</p>
+        <p>Built on the shoulders of giants <a href="http://twitter.github.io/bootstrap">bootstrap</a> and <a href="http://dojotoolkit.org">dojo</a>.</p>
+        <ul class="footer-links">
+          <li><a href="http://zoopcommerce.com">Zoop</a></li>
+          <li class="muted">&middot;</li>
+          <li><a href="https://github.com/zoopcommerce/mystique/issues?state=open">Issues</a></li>
+          <li class="muted">&middot;</li>
+          <li><a href="https://github.com/zoopcommerce/mystique/blob/master/CHANGELOG.md">Changelog</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/google-code-prettify/prettify.js"></script>
+    <script src="js/havok.js"></script>
+    <script type="text/javascript">
+        require(['dojo/parser'], function(parser){parser.parse()})
+    </script>
+  </body>
+</html>

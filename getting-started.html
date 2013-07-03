@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Zoop · Mystique</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Tim Roediger">
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/docs.css" rel="stylesheet">
+    <link href="js/google-code-prettify/prettify.css" rel="stylesheet">
+  </head>
+
+  <body onload="prettyPrint()">
+
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="./index.html">Mystique</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="./index.html">Home</a>
+              </li>
+              <li class="">
+                <a href="./getting-started.html">Get started</a>
+              </li>
+              <li class="">
+                <a href="./javascript.html">Javascript</a>
+              </li>
+              <li class="">
+                <a href="./php.html">PHP</a>
+              </li>
+              <li class="">
+                <a href="./validators.html">Validators</a>
+              </li>
+              <li class="">
+                <a href="./spec.html">Spec</a>
+              </li>
+              <li class="">
+                <a href="./extend.html">Extend</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>Getting Started</h1>
+    <p class="lead">Overview of Mystique and using validators</p>
+  </div>
+</header>
+
+
+  <div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <ul data-dojo-type="havok/widget/ListNav"
+            data-dojo-mixins="havok/widget/_AffixMixin, havok/widget/_ScrollSpyMixin"
+            data-dojo-props="
+               linkTemplate: '&lt;a role=&quot;navitem&quot; href=&quot;${href}&quot;&gt;&lt;i class=&quot;icon-chevron-right&quot;&gt;&lt;/i&gt; ${label}&lt;/a&gt;',
+               affixOffset: {top: 40, bottom: 0},
+               affixTarget: 'mainContent',
+               spyTarget: 'mainContent'
+            "
+            class="nav-stacked bs-docs-sidenav"
+        >
+        </ul>
+      </div>
+      <div class="span9" id="mainContent">
+
+        <section id="download-mystique" title="Download">
+  <div class="page-header">
+    <h1>Download</h1>
+  </div>
+
+    <p class="lead">Note: Mystique comes with validators for several languages. However, to use the library you only need to be familiar with the language you intend to use.</p>
+
+    <div class="row-fluid">
+      <div class="span12 hero-unit">
+        <h2>Source from Github</h2>
+        <p>Get everything! The original files for all languages, including:
+        <ul>
+            <li>stand alone javascript</li>
+            <li>javascript modules compatable with node, dojo, and other AMD loaders</li>
+            <li>php source (modern php 5.4)</li>
+        </ul>
+        <p><a class="btn btn-large btn-primary" href="https://github.com/zoopcommerce/mystique/zipball/master" >Download Mystique source</a></p>
+        <p>or gittish people:</p>
+<pre class="prettyprint linenums">
+git clone http://github.com/zoopcommerce/mystique
+</pre>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span6">
+        <h2>Source with Composer</h2>
+        <p>Get the source, and easily manage versioning.</p>
+        <p>Add the following to your root <code>composer.json</code>:</p>
+<pre class="prettyprint linenums">
+require: [
+"zoopcommerce/mystique":
+    "~1.0"
+]
+</pre>
+      </div>
+      <div class="span6">
+        <h2>Stand alone Javascript</h2>
+        <p>This is the simplest and fastest way to get started with Javascript. It is one single mimified Javascript file.</p>
+        <p><a class="btn btn-large" href="https://raw.github.com/zoopcommerce/mystique/master/js/dist/mystique.js">Download mystique.js</a></p>
+      </div>
+    </div>
+
+</section>
+<section id="file-structure" title="File Structure">
+  <div class="page-header">
+    <h1>File structure</h1>
+  </div>
+  <p class="lead">If you have downloaded the source you'll find the following file structure and contents:</p>
+<pre>
+mystique/
+├── common/
+│   ├── testdata                  test data for all validators in all languages
+│   └── translations              validator message translations
+├── docs/
+│   ├── dist                      local copy of these docs
+│   └── ...
+├── js/
+│   └── mystique                  js AMD modules
+│        ├── dist
+│        │    └── mystique.js    stand alone js
+│        └── ...
+└── php/
+     ├── lib/
+     │    └── Zoop/
+     │         └── Mystique/      php source
+     └── ...
+</pre>
+</section>
+
+<section id="whats-included" title="What's Included">
+  <div class="page-header">
+    <h1>What's Included</h1>
+  </div>
+  <p class="lead">Mystique is a shape shifting validation library. It lets you use validators in lots of different places, and in lots of different ways.</p>
+
+    <h2>Docs sections</h2>
+    <h4><a href="./javascript.html">Javascript</a></h4>
+    <p>Detailed information about how to use the validators in a javascript context.</p>
+    <h4><a href="./php.html">PHP</a></h4>
+    <p>Detailed information about how to use the validators in a php context.</p>
+    <h4><a href="./validators.html">Validators</a></h4>
+    <p>Reference for all the validators that come bundled with Mystique.</p>
+    <h4><a href="./spec.html">Spec</a></h4>
+    <p>Specifications and conventions for the core <code>Base</code>, <code>Result</code> and <code>Chain</code> objects in any language.</p>
+    <h4><a href="./extend.html">Extend</a></h4>
+    <p>How to build, extend and refine Mystique to fit neatly into your own project.</p>
+</section>
+
+<section id="examples" title="Examples">
+  <div class="page-header">
+    <h1>Examples</h1>
+  </div>
+
+    <h2>Bundled Validators</h2>
+  <p class="lead">Use the many validators already bundled with mystique.</p>
+
+  <p>This example will check if <code>myValue</code> contains only alpha characters, and display a message if it does not.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+<pre class="prettyprint linenums">
+require(['mystique/Alpha'], function(Alpha){
+    var validator = new Alpha,
+        result = validator.isValid(myValue);
+
+    if (!result.get('value')){
+        alert(result.get('messages').join(' ');
+    }
+})
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+<pre class="prettyprint linenums">
+var validator = new mystique.Alpha,
+    result = validator.isValid(myValue);
+
+if (!result.get('value')){
+    alert(result.get('messages').join(' ');
+}
+</pre>
+    </div>
+    <div title="PHP">
+<pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Alpha;
+$result = $validator->isValid($myValue);
+
+if (!$result->getValue()){
+    echo implode(' ', $result->getMessages());
+}
+</pre>
+    </div>
+</div>
+
+    <h2>Chains</h2>
+  <p class="lead">Create complex validators by chaining simpler ones together.</p>
+  <p>This example will create a validator chain that first checks for alpha characters, and then checks string length.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+<pre class="prettyprint linenums">
+require(['mystique/Alpha', 'mystique/Length', 'mystique/Chain'], function(Alpha, Length, Chain){
+    var validator = new Chain({'validators': [
+            new Alpha,
+            new Length({'min': 5, 'max': 10})
+        ]}),
+        result = validator.isValid(myValue);
+})
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+<pre class="prettyprint linenums">
+var validator = new mystique.Chain({'validators': [
+        new mystique.Alpha,
+        new mystique.Length({'min': 5, 'max': 10})
+    ]}),
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+<pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Chain(['validators' => [
+    new Zoop\Mystique\Alpha,
+    new Zoop\Mystique\Length('min' => 5, 'max' => 10)
+]]);
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+
+<section id="what-next" title="What Next?">
+  <div class="page-header">
+    <h1>What next?</h1>
+  </div>
+
+  <p class="lead">Dive into the docs for detailed instructions...</p>
+
+  <div class="row-fluid">
+    <a class="span4 btn btn-large" href="./javascript.html">Dive into Javascript</a>
+    <a class="span4 btn btn-large" href="./php.html">Dive into PHP</a>
+    <a class="span4 btn btn-large" href="./validators.html">Explore bundled validators</a>
+  </div>
+</section>
+
+
+      </div>
+    </div>
+  </div>
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+      <div class="container">
+        <p>Created by <a href="http://github.com/superdweebie">@superdweebie</a> and <a href="http://github.com/crimsonronin">@crimsonronin</a>.</p>
+        <p>Code licensed under MIT.</p>
+        <p>Built on the shoulders of giants <a href="http://twitter.github.io/bootstrap">bootstrap</a> and <a href="http://dojotoolkit.org">dojo</a>.</p>
+        <ul class="footer-links">
+          <li><a href="http://zoopcommerce.com">Zoop</a></li>
+          <li class="muted">&middot;</li>
+          <li><a href="https://github.com/zoopcommerce/mystique/issues?state=open">Issues</a></li>
+          <li class="muted">&middot;</li>
+          <li><a href="https://github.com/zoopcommerce/mystique/blob/master/CHANGELOG.md">Changelog</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/google-code-prettify/prettify.js"></script>
+    <script src="js/havok.js"></script>
+    <script type="text/javascript">
+        require(['dojo/parser'], function(parser){parser.parse()})
+    </script>
+  </body>
+</html>
