@@ -1,0 +1,9 @@
+{
+    "data": [
+        {"value": "123", "result": true},
+        {"value": "5AA", "result": false},
+        {"value": 723  , "result": true},
+        {"value": 72   , "result": false},
+        {"value": 72345 , "result": false}
+    ]
+}

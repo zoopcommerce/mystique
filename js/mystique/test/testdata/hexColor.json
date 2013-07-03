@@ -1,0 +1,9 @@
+{
+    "data": [
+        {"value": "#123ABF" , "result": true},
+        {"value": "!123ABF" , "result": false},
+        {"value": "123ABF"  ,  "result": false},
+        {"value": "#1234ABF",  "result": false},
+        {"value": "#1234ABF",  "result": false}
+    ]
+}

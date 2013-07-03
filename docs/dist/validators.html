@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Zoop · Mystique</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Tim Roediger">
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/docs.css" rel="stylesheet">
+    <link href="js/google-code-prettify/prettify.css" rel="stylesheet">
+  </head>
+
+  <body onload="prettyPrint()">
+
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="./index.html">Mystique</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="./index.html">Home</a>
+              </li>
+              <li class="">
+                <a href="./getting-started.html">Get started</a>
+              </li>
+              <li class="">
+                <a href="./javascript.html">Javascript</a>
+              </li>
+              <li class="">
+                <a href="./php.html">PHP</a>
+              </li>
+              <li class="">
+                <a href="./validators.html">Validators</a>
+              </li>
+              <li class="">
+                <a href="./spec.html">Spec</a>
+              </li>
+              <li class="">
+                <a href="./extend.html">Extend</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>Validators</h1>
+    <p class="lead">Dozens of reusable validators for server, client or both.</p>
+  </div>
+</header>
+
+
+  <div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <ul data-dojo-type="havok/widget/ListNav"
+            data-dojo-mixins="havok/widget/_AffixMixin, havok/widget/_ScrollSpyMixin"
+            data-dojo-props="
+               linkTemplate: '&lt;a role=&quot;navitem&quot; href=&quot;${href}&quot;&gt;&lt;i class=&quot;icon-chevron-right&quot;&gt;&lt;/i&gt; ${label}&lt;/a&gt;',
+               affixOffset: {top: 40, bottom: 0},
+               affixTarget: 'mainContent',
+               spyTarget: 'mainContent'
+            "
+            class="nav-stacked bs-docs-sidenav"
+        >
+        </ul>
+      </div>
+      <div class="span9" id="mainContent">
+
+        <section id="comparison" title="Comparision Validators">
+            <div class="page-header">
+              <h1>Comparison Validators</h1>
+            </div>
+        <section id="equal" title="Equal">
+
+    <h2>Equal</h2>
+
+  <p>Returns true if the test value is equal to the compare value.</p>
+<h4>Constructor options</h4>
+<table class="table table-bordered table-striped">
+  <thead>
+   <tr>
+     <th style="width: 100px;">Name</th>
+     <th style="width: 50px;">type</th>
+     <th style="width: 50px;">default</th>
+     <th>description</th>
+   </tr>
+  </thead>
+  <tbody>
+<tr>
+<td>compareValue</td><td>numeric | string | date object</td><td>0</td><td>The value to compare the test value with.</td></tr>
+</tbody>
+</table>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/Equal'], function(Equal){
+    var validator = new Equal({'compareValue': myCompareValue}),
+        result = validator.isValid(myValue);
+})
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.Equal({'compareValue': myCompareValue}),
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Equal(['compareValue' => $myCompareValue]);
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="greater-than" title="Greater Than">
+
+    <h2>Greater Than</h2>
+
+  <p>Returns true if the test value is greater than the compare value.</p>
+<h4>Constructor options</h4>
+<table class="table table-bordered table-striped">
+  <thead>
+   <tr>
+     <th style="width: 100px;">Name</th>
+     <th style="width: 50px;">type</th>
+     <th style="width: 50px;">default</th>
+     <th>description</th>
+   </tr>
+  </thead>
+  <tbody>
+<tr>
+<td>compareValue</td><td>numeric | string | date object</td><td>0</td><td>The value to compare the test value with.</td></tr>
+</tbody>
+</table>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/GreaterThan'], function(GreaterThan){
+    var validator = new GreaterThan({'compareValue': myCompareValue}),
+        result = validator.isValid(myValue);
+})
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.GreaterThan({'compareValue': myCompareValue}),
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\GreaterThan(['compareValue' => $myCompareValue]);
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="greater-than-equal" title="Greater Than or Equal">
+
+    <h2>Greater Than or Equal</h2>
+
+  <p>Returns true if the test value is greater than or equal to the compare value.</p>
+<h4>Constructor options</h4>
+<table class="table table-bordered table-striped">
+  <thead>
+   <tr>
+     <th style="width: 100px;">Name</th>
+     <th style="width: 50px;">type</th>
+     <th style="width: 50px;">default</th>
+     <th>description</th>
+   </tr>
+  </thead>
+  <tbody>
+<tr>
+<td>compareValue</td><td>numeric | string | date object</td><td>0</td><td>The value to compare the test value with.</td></tr>
+</tbody>
+</table>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/GreaterThanEqual'], function(GreaterThanEqual){
+    var validator = new GreaterThanEqual({'compareValue': myCompareValue}),
+        result = validator.isValid(myValue);
+})
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.GreaterThanEqual({'compareValue': myCompareValue}),
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\GreaterThanEqual(['compareValue' => $myCompareValue]);
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="less-than" title="Less Than">
+
+    <h2>Less Than</h2>
+
+  <p>Returns true if the test value is less than the compare value.</p>
+<h4>Constructor options</h4>
+<table class="table table-bordered table-striped">
+  <thead>
+   <tr>
+     <th style="width: 100px;">Name</th>
+     <th style="width: 50px;">type</th>
+     <th style="width: 50px;">default</th>
+     <th>description</th>
+   </tr>
+  </thead>
+  <tbody>
+<tr>
+<td>compareValue</td><td>numeric | string | date object</td><td>0</td><td>The value to compare the test value with.</td></tr>
+</tbody>
+</table>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/LessThan'], function(LessThan){
+    var validator = new LessThan({'compareValue': myCompareValue}),
+        result = validator.isValid(myValue);
+})
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.LessThan({'compareValue': myCompareValue}),
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\LessThan(['compareValue' => $myCompareValue]);
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="less-than-equal" title="Less Than or Equal">
+
+    <h2>Less Than or Equal</h2>
+
+  <p>Returns true if the test value is less than or equal to the compare value.</p>
+<h4>Constructor options</h4>
+<table class="table table-bordered table-striped">
+  <thead>
+   <tr>
+     <th style="width: 100px;">Name</th>
+     <th style="width: 50px;">type</th>
+     <th style="width: 50px;">default</th>
+     <th>description</th>
+   </tr>
+  </thead>
+  <tbody>
+<tr>
+<td>compareValue</td><td>numeric | string | date object</td><td>0</td><td>The value to compare the test value with.</td></tr>
+</tbody>
+</table>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/LessThanEqual'], function(LessThanEqual){
+    var validator = new LessThanEqual({'compareValue': myCompareValue}),
+        result = validator.isValid(myValue);
+})
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.LessThanEqual({'compareValue': myCompareValue}),
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\LessThanEqual(['compareValue' => $myCompareValue]);
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="not-equal" title="Not Equal">
+
+    <h2>Not Equal</h2>
+
+  <p>Returns true if the test value is not equal to the compare value.</p>
+<h4>Constructor options</h4>
+<table class="table table-bordered table-striped">
+  <thead>
+   <tr>
+     <th style="width: 100px;">Name</th>
+     <th style="width: 50px;">type</th>
+     <th style="width: 50px;">default</th>
+     <th>description</th>
+   </tr>
+  </thead>
+  <tbody>
+<tr>
+<td>compareValue</td><td>numeric | string | date object</td><td>0</td><td>The value to compare the test value with.</td></tr>
+</tbody>
+</table>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/NotEqual'], function(NotEqual){
+    var validator = new NotEqual({'compareValue': myCompareValue}),
+        result = validator.isValid(myValue);
+})
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.NotEqual({'compareValue': myCompareValue}),
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\NotEqual(['compareValue' => $myCompareValue]);
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+        </section>
+        <section id="credit-card-validators" title="Credit Card Validators">
+            <div class="page-header">
+              <h1>Credit Card Validators</h1>
+            </div>
+        <section id="creditCard" title="Credit Card">
+
+    <h2>Credit Card</h2>
+
+  <p>Returns true if the test value appears to be a valid credit card number.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/CreditCard'], function(CreditCard){
+    var validator = new CreditCard,
+        result = validator.isValid(myValue);
+});
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.CreditCard,
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\CreditCard;
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="creditCardExpiry" title="Credit Card Expiry">
+
+    <h2>Credit Card Expiry</h2>
+
+  <p>Tests that the supplied value object is a valid two digit month and two digit year.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <p>The value must be an object the form <code>{month: int, year: int}</code></p><pre class="prettyprint linenums">
+
+require(['mystique/CreditCardExpiry'], function(CreditCardExpiry){
+    var validator = new CreditCardExpiry,
+        result = validator.isValid(myValue);
+});
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <p>The value must be an object the form <code>{month: int, year: int}</code></p><pre class="prettyprint linenums">
+
+var validator = new mystique.CreditCardExpiry,
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <p>The value must be an associative array with the form <code>["month" => int, "year" => int]</code></p><pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\CreditCardExpiry;
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="cvv" title="Cvv">
+
+    <h2>Cvv</h2>
+
+  <p>Returns true if the test value appears to be a valid credit card Cvv.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/Cvv'], function(Cvv){
+    var validator = new Cvv,
+        result = validator.isValid(myValue);
+});
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.Cvv,
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Cvv;
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+        </section>
+        <section id="chain-helper" title="Chain Helper Validators">
+            <div class="page-header">
+              <h1>Chain Helper Validators</h1>
+            </div>
+        <section id="chain" title="Chain">
+
+    <h2>Chain</h2>
+
+  <p>Allows validators to be chained together.</p>
+<h4>Constructor options</h4>
+<table class="table table-bordered table-striped">
+  <thead>
+   <tr>
+     <th style="width: 100px;">Name</th>
+     <th style="width: 50px;">type</th>
+     <th style="width: 50px;">default</th>
+     <th>description</th>
+   </tr>
+  </thead>
+  <tbody>
+<tr>
+<td>validators</td><td>array</td><td>[]</td><td>An array of validator instances that will be evaluated in order. If all pass, then the Result value will be true. If one or more fail, then the Result value will be false. The order of evaluation can be truncated or altered with the <code>haltOnPass</code> <code>haltOnFail</code> <code>skipOnPass</code> <code>skipOnFail</code> properties of each validator. For more information see the <a href="./spec.html">spec</a>.</td></tr>
+</tbody>
+</table>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/Alpha', 'mystique/Length', 'mystique/Chain'], function(Alpha, Length, Chain){
+    var validator = new Chain({'validators': [
+            new Alpha,
+            new Length({'min': 5, 'max': 10})
+        ]}),
+        result = validator.isValid(myValue);
+})
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.Chain({'validators': [
+        new mystique.Alpha,
+        new mystique.Length({'min': 5, 'max': 10})
+    ]}),
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Chain(['validators' => [
+    new Zoop\Mystique\Alpha,
+    new Zoop\Mystique\Length('min' => 5, 'max' => 10)
+]]);
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="required" title="Required">
+
+    <h2>Required</h2>
+
+  <p>Place this validator at the start of a chain. If the test value is nullish, it will immediately return false without evaluating subsiquent validators in the chain.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/Required', 'mystique/Alpha', 'mystique/Chain'], function(Required, Alpha, Chain){
+    var validator = new Chain({'validators': [
+            new Required,
+            new Alpha
+        ]}),
+        result = validator.isValid(myValue);
+})
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.Chain({'validators': [
+        new mystique.Required,
+        new mystique.Alpha
+    ]}),
+    result = validator.isValid(myValue);
+})
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Chain(['validators' => [
+    new Zoop\Mystique\Required,
+    new Zoop\Mystique\Alpha
+]);
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="not-required" title="Not Required">
+
+    <h2>Not Required</h2>
+
+  <p>Place this validator at the start of a chain. If the test value is nullish, it will immediately return true without evaluating subsiquent validators in the chain.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/NotRequired', 'mystique/Alpha', 'mystique/Chain'], function(NotRequired, Alpha, Chain){
+    var validator = new Chain({'validators': [
+            new NotRequired,
+            new Alpha
+        ]}),
+        result = validator.isValid(myValue);
+})
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.Chain({'validators': [
+        new mystique.NotRequired,
+        new mystique.Alpha
+    ]}),
+    result = validator.isValid(myValue);
+})
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Chain(['validators' => [
+    new Zoop\Mystique\NotRequired,
+    new Zoop\Mystique\Alpha
+]);
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+        </section>
+        <section id="datatype" title="Datatype Validators">
+            <div class="page-header">
+              <h1>Datatype Validators</h1>
+            </div>
+        <section id="boolean" title="Boolean">
+
+    <h2>Boolean</h2>
+
+  <p>Returns true if the test value is a boolean.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/Boolean'], function(Boolean){
+    var validator = new Boolean,
+        result = validator.isValid(myValue);
+});
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.Boolean,
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Boolean;
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="float" title="Float">
+
+    <h2>Float</h2>
+
+  <p>Returns true if the test value is numeric.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/Float'], function(Float){
+    var validator = new Float,
+        result = validator.isValid(myValue);
+});
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.Float,
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Float;
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="int" title="Int">
+
+    <h2>Int</h2>
+
+  <p>Returns true if the test value is an integer, or can be parsed to an integer.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/Int'], function(Int){
+    var validator = new Int,
+        result = validator.isValid(myValue);
+});
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.Int,
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Int;
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="date" title="Date">
+
+    <h2>Date</h2>
+
+  <p>Returns true if the test value appears is a Date object.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/Date'], function(Date){
+    var validator = new Date,
+        result = validator.isValid(myValue);
+});
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.Date,
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Date;
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="string" title="String">
+
+    <h2>String</h2>
+
+  <p>Returns true if the test value is a string.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/String'], function(String){
+    var validator = new String,
+        result = validator.isValid(myValue);
+});
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.String,
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\String;
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+        </section>
+        <section id="other" title="Other Validators">
+            <div class="page-header">
+              <h1>Other Validators</h1>
+            </div>
+        <section id="alpha" title="Alpha">
+
+    <h2>Alpha</h2>
+
+  <p>Returns true if the test value contains only alpha characters.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/Alpha'], function(Alpha){
+    var validator = new Alpha,
+        result = validator.isValid(myValue);
+});
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.Alpha,
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Alpha;
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="email" title="Email">
+
+    <h2>Email</h2>
+
+  <p>Returns true if the test value appears to be a valid email.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/Email'], function(Email){
+    var validator = new Email,
+        result = validator.isValid(myValue);
+});
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.Email,
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Email;
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="hex-color" title="Hex Color">
+
+    <h2>Hex Color</h2>
+
+  <p>Returns true if the test value is a valid hexadecimal color code prefixed with <code>#</code>.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/HexColor'], function(HexColor){
+    var validator = new HexColor,
+        result = validator.isValid(myValue);
+});
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.HexColor,
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\HexColor;
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="length" title="Length">
+
+    <h2>Length</h2>
+
+  <p>Returns true if the test value meets the specified length conditions.</p>
+<h4>Constructor options</h4>
+<table class="table table-bordered table-striped">
+  <thead>
+   <tr>
+     <th style="width: 100px;">Name</th>
+     <th style="width: 50px;">type</th>
+     <th style="width: 50px;">default</th>
+     <th>description</th>
+   </tr>
+  </thead>
+  <tbody>
+<tr>
+<td>min</td><td>int</td><td>0</td><td>The minimum length.</td></tr>
+<tr>
+<td>max</td><td>int</td><td>255</td><td>The maximum length.</td></tr>
+</tbody>
+</table>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/Length'], function(Length){
+    var validator = new Length({min: 10, max: 20}),
+        result = validator.isValid(myValue);
+})
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.Length({min: 10, max: 20}),
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Length(['min' => 10, 'max' => 20]) ;
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="regex" title="Regex">
+
+    <h2>Regex</h2>
+
+  <p>Returns true if the test value matches the supplied regular expression.</p>
+<h4>Constructor options</h4>
+<table class="table table-bordered table-striped">
+  <thead>
+   <tr>
+     <th style="width: 100px;">Name</th>
+     <th style="width: 50px;">type</th>
+     <th style="width: 50px;">default</th>
+     <th>description</th>
+   </tr>
+  </thead>
+  <tbody>
+<tr>
+<td>regex</td><td>string</td><td>$^</td><td>The regular expression to test against.</td></tr>
+</tbody>
+</table>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/Regex'], function(Regex){
+    var validator = new Regex({regex: '^[a-zA-Z]+$'}),
+        result = validator.isValid(myValue);
+})
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.Regex({regex: '^[a-zA-Z]+$'}),
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Regex;
+$result = $validator->isValid(['regex' => '^[a-zA-Z]+$']);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="password" title="Password">
+
+    <h2>Password</h2>
+
+  <p>Returns true if the test value is likely to be a strong password. Length must be between 6 and 40 characters. Must contain at least one alpha and one numeric character.</p>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/Password'], function(Password){
+    var validator = new Password,
+        result = validator.isValid(myValue);
+});
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.Password,
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Password;
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+<section id="slug" title="Slug">
+
+    <h2>Slug</h2>
+
+  <p>Returns true if the test value is a valid slug, that is, contains only the characters a-z, 0-9 and -, and meets the specified length conditions.</p>
+<h4>Constructor options</h4>
+<table class="table table-bordered table-striped">
+  <thead>
+   <tr>
+     <th style="width: 100px;">Name</th>
+     <th style="width: 50px;">type</th>
+     <th style="width: 50px;">default</th>
+     <th>description</th>
+   </tr>
+  </thead>
+  <tbody>
+<tr>
+<td>min</td><td>int</td><td>3</td><td>The minimum length of the slug.</td></tr>
+<tr>
+<td>max</td><td>int</td><td>255</td><td>The maximum length of the slug.</td></tr>
+</tbody>
+</table>
+
+<div data-dojo-type="havok/widget/Accordion">
+    <div title="Javascript AMD">
+    <pre class="prettyprint linenums">
+
+require(['mystique/Slug'], function(Slug){
+    var validator = new Slug,
+        result = validator.isValid(myValue);
+})
+</pre>
+    </div>
+    <div title="Javascript stand alone">
+    <pre class="prettyprint linenums">
+
+var validator = new mystique.Slug,
+    result = validator.isValid(myValue);
+</pre>
+    </div>
+    <div title="PHP">
+    <pre class="prettyprint linenums">
+$validator = new Zoop\Mystique\Slug;
+$result = $validator->isValid($myValue);
+</pre>
+    </div>
+</div>
+
+</section>
+        </section>
+      </div>
+    </div>
+  </div>
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+      <div class="container">
+        <p>Created by <a href="http://github.com/superdweebie">@superdweebie</a> and <a href="http://github.com/crimsonronin">@crimsonronin</a>.</p>
+        <p>Code licensed under MIT.</p>
+        <p>Built on the shoulders of giants <a href="http://twitter.github.io/bootstrap">bootstrap</a> and <a href="http://dojotoolkit.org">dojo</a>.</p>
+        <ul class="footer-links">
+          <li><a href="http://zoopcommerce.com">Zoop</a></li>
+          <li class="muted">&middot;</li>
+          <li><a href="https://github.com/zoopcommerce/mystique/issues?state=open">Issues</a></li>
+          <li class="muted">&middot;</li>
+          <li><a href="https://github.com/zoopcommerce/mystique/blob/master/CHANGELOG.md">Changelog</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/google-code-prettify/prettify.js"></script>
+    <script src="js/havok.js"></script>
+    <script type="text/javascript">
+        require(['dojo/parser'], function(parser){parser.parse()})
+    </script>
+  </body>
+</html>

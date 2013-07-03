@@ -1,0 +1,6 @@
+{
+    "data": [
+        {"value": {"day": 1, "month": 1, "year": 2013}, "result": true},
+        {"value": "1/1/2013"  , "result": false}
+    ]
+}

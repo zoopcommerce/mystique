@@ -1,0 +1,13 @@
+{
+    "data": [
+        {"value": -1, "result": true, "options": {"compare": 0}},
+        {"value": 0, "result": false, "options": {"compare": 0}},
+        {"value": 1, "result": false, "options": {"compare": 0}},
+        {"value": "a", "result": true, "options": {"compare": "b"}},
+        {"value": "b", "result": false, "options": {"compare": "b"}},
+        {"value": "c", "result": false, "options": {"compare": "b"}},
+        {"value": {"day": 1, "month": 1, "year": 2013}, "result": true, "options": {"compare": {"day": 2, "month": 1, "year": 2013}}},
+        {"value": {"day": 2, "month": 1, "year": 2013}, "result": false, "options": {"compare": {"day": 2, "month": 1, "year": 2013}}},
+        {"value": {"day": 3, "month": 1, "year": 2013}, "result": false, "options": {"compare": {"day": 2, "month": 1, "year": 2013}}}
+    ]
+}

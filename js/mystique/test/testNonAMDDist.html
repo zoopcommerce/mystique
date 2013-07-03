@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Testing Mystique non-AMD built package</title>
+        <script type="text/javascript" src="../dist/mystique.js"></script>
+        <script type="text/javascript">
+            var alpha = new mystique.Alpha;
+            console.debug(alpha.isValid('abc'));
+            console.debug(alpha.isValid('123').get('messages'));
+
+	</script>
+	</head>
+	<body>
+        <h1>Testing Mystique non-AMD built package</h1>
+        <p>see console for output</p>
+
+	</body>
+</html>

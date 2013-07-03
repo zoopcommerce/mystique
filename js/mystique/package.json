@@ -1,0 +1,9 @@
+{
+    "name": "mystique",
+    "version":"1.0",
+    "main":"mystique",
+    "description": "Validator library",
+    "keywords": ["javaScript", "dojo", "validator", "zoop", "mystique"],
+    "homepage": "http://zoopcommerce.github.io/mystique",
+    "dojoBuild": "mystique.profile.js"
+}

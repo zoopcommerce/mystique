@@ -1,0 +1,9 @@
+{
+    "data": [
+        {"value": "abc", "result": true},
+        {"value": 1    , "result": false},
+        {"value": null , "result": false},
+        {"value": {}   , "result": false},
+        {"value": []   , "result": false}
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "data": [
+        {"value": 1    , "result": true},
+        {"value": 1.0  , "result": true},
+        {"value": "1"  ,  "result": true},
+        {"value": true ,  "result": false},
+        {"value": false,  "result": false},
+        {"value": 1.5  ,  "result": false},
+        {"value": "1.5",  "result": false},
+        {"value": {},  "result": false},
+        {"value": [],  "result": false}
+    ]
+}
