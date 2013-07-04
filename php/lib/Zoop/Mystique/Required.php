@@ -14,6 +14,8 @@ namespace Zoop\Mystique;
 class Required extends Base
 {
 
+    protected $haltOnFail = true;
+
     protected function _isValid($value){
 
         $result = new Result(["value" => true]);
