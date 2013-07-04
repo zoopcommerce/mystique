@@ -2,11 +2,11 @@
     "data": [
         {"value": "string", "result": true},
         {"value": "@#$%^" , "result": true},
-        {"value": "'"     ,  "result": true},
-        {"value": "\""    ,  "result": true},
+        {"value": "'"     , "result": true},
+        {"value": "\""    , "result": true},
         {"value": "\\"    , "result": true},
         {"value": ""      , "result": false},
-        {"value": " "     ,  "result": false},
+        {"value": " "     , "result": false},
 
         {"value": 1     ,  "result": true},
         {"value": "1"   ,  "result": true},
@@ -25,7 +25,7 @@
 
         {"value": {}              ,  "result": false},
         {"value": {"something": 1},  "result": true},
-        
+
         {"value": []           ,  "result": false},
         {"value": ["something"],  "result": true}
     ]

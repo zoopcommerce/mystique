@@ -7,7 +7,7 @@ $applicationRoot = __DIR__ . '/../';
 
 if ( ! file_exists($applicationRoot . $loaderPath )) {
     // Root if testing as part of a larger app
-    $applicationRoot = __DIR__ . '/../../../../';
+    $applicationRoot = __DIR__ . '/../../../../../';
 }
 
 chdir($applicationRoot);

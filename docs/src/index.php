@@ -18,7 +18,7 @@
         <a href="./extend.html">Extend</a>
       </li>
       <li>
-        Version 1.0
+        Version 1.0.1
       </li>
     </ul>
   </div>
