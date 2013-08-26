@@ -1,6 +1,0 @@
-{
-    "data": [
-        {"value": "abc", "result": true, "options": {"regex": "^[a-zA-Z]+$"}},
-        {"value": "123", "result": false, "options": {"regex": "^[a-zA-Z]+$"}}
-    ]
-}
