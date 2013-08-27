@@ -3,7 +3,10 @@ var profile = (function(){
 
     var ignore = function(filename, mid){
         var list = {
-            "mystique-common/docs" : true
+            "mystique-common/docs" : true,
+            "mystique-common/composer.json": true,
+            "mystique-common/README.md": true,
+            "mystique-common/CHANGELOG.md": true
         };
         return (mid in list) ||
             docsResourceRe.test(mid);
