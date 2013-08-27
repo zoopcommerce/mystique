@@ -7,22 +7,56 @@
     <meta name="description" content="">
     <meta name="author" content="Tim Roediger">
 
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="css/docs.css" rel="stylesheet">
     <link href="js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <?php
+    if (isset($build) && $build == 'dist'){
+    ?>
+    <link rel="stylesheet" href="havokdocs.css">
+
+    <!-- Placed at the start of the document so require is available for examples -->
+    <script src="js/havokdocs.js"></script>
+    <?php
+    } else {
+    ?>
+    <!-- Placed at the start of the document so require is available for examples -->
+    <script type="text/javascript">
+        dojoConfig = {
+            isDebug: true,
+            locale: 'en-au',
+            async: true,
+            merge: [
+                'havok/config'
+            ],
+            less: {
+                "havok/vendor/bootstrap/less/buttons.less": {rank: 1},
+                "havok/vendor/bootstrap/less/wells.less": {rank: 1},
+                "havok/docs/src/less/docs.less": {rank: 4}
+            }
+        }
+    </script>
+    <script src="../../../dojo/dojo.js"></script>
+    <?php
+    }
+    ?>
+    <script type="text/javascript">
+        require(['dojo/parser', 'dojo/domReady!'], function(parser){parser.parse()})
+    </script>
+
   </head>
 
   <body onload="prettyPrint()">
 
-    <!-- Navbar
-    ================================================== -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="./index.html">Mystique</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
+  <div class="navbar navbar-inverse navbar-fixed-top" data-dojo-type="havok/widget/NavBar">
+      <div class="container">
+        <a data-dojo-attach-point="toggleNode">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="./index.html">Havok</a>
+        <div data-dojo-attach-point="toggleTarget">
+            <ul class="nav" data-dojo-type="havok/widget/NavBarLinks">
               <li class="">
                 <a href="./index.html">Home</a>
               </li>
@@ -45,12 +79,13 @@
                 <a href="./extend.html">Extend</a>
               </li>
             </ul>
-          </div>
         </div>
       </div>
-    </div>
+  </div>
 
+    <div id="contentWrapper" style="min-height: 1000px">
     <?php echo $content;?>
+    </div>
 
     <!-- Footer
     ================================================== -->
@@ -69,11 +104,6 @@
       </div>
     </footer>
 
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/google-code-prettify/prettify.js"></script>
-    <script src="js/havok.js"></script>
-    <script type="text/javascript">
-        require(['dojo/parser'], function(parser){parser.parse()})
-    </script>
   </body>
 </html>

@@ -7,22 +7,30 @@
     <meta name="description" content="">
     <meta name="author" content="Tim Roediger">
 
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="css/docs.css" rel="stylesheet">
     <link href="js/google-code-prettify/prettify.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="havokdocs.css">
+
+    <!-- Placed at the start of the document so require is available for examples -->
+    <script src="js/havokdocs.js"></script>
+        <script type="text/javascript">
+        require(['dojo/parser', 'dojo/domReady!'], function(parser){parser.parse()})
+    </script>
+
   </head>
 
   <body onload="prettyPrint()">
 
-    <!-- Navbar
-    ================================================== -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="./index.html">Mystique</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
+  <div class="navbar navbar-inverse navbar-fixed-top" data-dojo-type="havok/widget/NavBar">
+      <div class="container">
+        <a data-dojo-attach-point="toggleNode">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="./index.html">Havok</a>
+        <div data-dojo-attach-point="toggleTarget">
+            <ul class="nav" data-dojo-type="havok/widget/NavBarLinks">
               <li class="">
                 <a href="./index.html">Home</a>
               </li>
@@ -45,11 +53,11 @@
                 <a href="./extend.html">Extend</a>
               </li>
             </ul>
-          </div>
         </div>
       </div>
-    </div>
+  </div>
 
+    <div id="contentWrapper" style="min-height: 1000px">
     
 <!-- Subhead
 ================================================== -->
@@ -67,11 +75,11 @@
     ================================================== -->
     <div class="row">
       <div class="span3 bs-docs-sidebar">
-        <ul data-dojo-type="havok/widget/ListNav"
+        <ul data-dojo-type="havok/widget/NavList"
             data-dojo-mixins="havok/widget/_AffixMixin, havok/widget/_ScrollSpyMixin"
             data-dojo-props="
-               linkTemplate: '&lt;a role=&quot;navitem&quot; href=&quot;${href}&quot;&gt;&lt;i class=&quot;icon-chevron-right&quot;&gt;&lt;/i&gt; ${label}&lt;/a&gt;',
-               affixOffset: {top: 40, bottom: 0},
+               linkTemplate: '&lt;a role=&quot;navitem&quot; href=&quot;${href}&quot;&gt;&lt;i class=&quot;icon-chevron-right&quot;&gt;&lt;/i&gt; ${text}&lt;/a&gt;',
+               viewportOffset: {top: 40, bottom: 0},
                affixTarget: 'mainContent',
                spyTarget: 'mainContent'
             "
@@ -86,75 +94,46 @@
     <h1>Download</h1>
   </div>
 
-    <p class="lead">Note: Mystique comes with validators for several languages. However, to use the library you only need to be familiar with the language you intend to use.</p>
+    <p class="lead">Note: Mystique provides validators for several languages. However, to use the library you only need to be familiar with the language you intend to use.</p>
 
-    <div class="row-fluid">
-      <div class="span12 hero-unit">
-        <h2>Source with Composer</h2>
-        <p>Get everything installed and ready to go!</p>
-        <ul>
-            <li>stand alone javascript</li>
-            <li>javascript modules compatable with node, dojo, and other AMD loaders</li>
-            <li>php source (modern php 5.4)</li>
-        </ul>
+    <h2>Php</h2>
+
+    <h3>With composer (recommended)</h3>
+
         <p>Add the following to your root <code>composer.json</code>:</p>
 <pre class="prettyprint linenums">
-require: [
-"zoopcommerce/mystique":
-    "~1.0"
-],
-"extra": {
-    "zoop-js-path": "public/js"
-}
+"require": [
+    "zoopcommerce/mystique-php": "~1.2"
+]
 </pre>
-    <p>Composer is the recommended method to a install. Using composer will install mystique in your <code>vendor</code> directory, make the php library available through the composer autoloaded, and also symlink the js library to be available in the directory set by <code>zoop-js-path</code>.</p>
 
-      </div>
-    </div>
+    <h2>Javascript</h2>
 
-    <div class="row-fluid">
-      <div class="span6">
-        <h2>Source from Github</h2>
-        <p><a class="btn btn-large btn-primary" href="https://github.com/zoopcommerce/mystique/zipball/master" >Download Mystique source</a></p>
-        <p>or gittish people:</p>
+    <h2>Standalone</h2>
+
+    <p>This is the simplest and fastest way to get started with Javascript. It is one single mimified Javascript file.</p>
+    <p><a class="btn btn-large" href="https://raw.github.com/zoopcommerce/mystique-js/master/dist/mystique.js">Download mystique.js</a></p>
+
+    <h2>Full sources with composer</h2>
+
+        <p>Add the following to your root <code>composer.json</code>:</p>
 <pre class="prettyprint linenums">
-git clone http://github.com/zoopcommerce/mystique
+"require": [
+    "zoopcommerce/mystique-js": "~1.2"
+],
+"extra": {"zoop-js-path": "public/js"}
 </pre>
-      </div>
-      <div class="span6">
-        <h2>Stand alone Javascript</h2>
-        <p>This is the simplest and fastest way to get started with Javascript. It is one single mimified Javascript file.</p>
-        <p><a class="btn btn-large" href="https://raw.github.com/zoopcommerce/mystique/master/js/dist/mystique.js">Download mystique.js</a></p>
-      </div>
-    </div>
 
-</section>
-<section id="file-structure" title="File Structure">
-  <div class="page-header">
-    <h1>File structure</h1>
-  </div>
-  <p class="lead">If you have downloaded the source you'll find the following file structure and contents:</p>
-<pre>
-mystique/
-├── common/
-│   ├── testdata                  test data for all validators in all languages
-│   └── translations              validator message translations
-├── docs/
-│   ├── dist                      local copy of these docs
-│   └── ...
-├── js/
-│   └── mystique                  js AMD modules
-│        ├── dist
-│        │    └── mystique.js    stand alone js
-│        └── ...
-└── php/
-     ├── lib/
-     │    └── Zoop/
-     │         └── Mystique/      php source
-     └── ...
+        <p>This will install the mystique sources in your vendor directory, and symlink them to <code>public/js</code>.</p>
+
+    <h2>Full sources manual install</h2>
+
+<pre class="prettyprint linenums">
+git clone http://github.com/zoopcommerce/mystique-js mystique
+git clone http://github.com/zoopcommerce/mystique mystique-common
 </pre>
+    
 </section>
-
 <section id="whats-included" title="What's Included">
   <div class="page-header">
     <h1>What's Included</h1>
@@ -275,6 +254,7 @@ $result = $validator->isValid($myValue);
       </div>
     </div>
   </div>
+    </div>
 
     <!-- Footer
     ================================================== -->
@@ -293,11 +273,6 @@ $result = $validator->isValid($myValue);
       </div>
     </footer>
 
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/google-code-prettify/prettify.js"></script>
-    <script src="js/havok.js"></script>
-    <script type="text/javascript">
-        require(['dojo/parser'], function(parser){parser.parse()})
-    </script>
   </body>
 </html>
