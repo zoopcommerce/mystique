@@ -10,7 +10,7 @@
     ],
     "homepage": "http://zoopcommerce.github.io/mystique",
     "require": {
-        "zoopcommerce/pixie": "*"
+        "zoopcommerce/pixie": "~0.4"
     },
     "require-dev": {
         "zoopcommerce/havok"      : "~1.0"
