@@ -3,46 +3,43 @@
     <h1>Download</h1>
   </div>
 
-    <p class="lead">Note: Mystique comes with validators for several languages. However, to use the library you only need to be familiar with the language you intend to use.</p>
+    <p class="lead">Note: Mystique provides validators for several languages. However, to use the library you only need to be familiar with the language you intend to use.</p>
 
-    <div class="row-fluid">
-      <div class="span12 hero-unit">
-        <h2>Source with Composer</h2>
-        <p>Get everything installed and ready to go!</p>
-        <ul>
-            <li>stand alone javascript</li>
-            <li>javascript modules compatable with node, dojo, and other AMD loaders</li>
-            <li>php source (modern php 5.4)</li>
-        </ul>
+    <h2>Php</h2>
+
+    <h3>With composer (recommended)</h3>
+
         <p>Add the following to your root <code>composer.json</code>:</p>
 <pre class="prettyprint linenums">
-require: [
-"zoopcommerce/mystique":
-    "~1.0"
-],
-"extra": {
-    "zoop-js-path": "public/js"
-}
+"require": [
+    "zoopcommerce/mystique-php": "~1.2"
+]
 </pre>
-    <p>Composer is the recommended method to a install. Using composer will install mystique in your <code>vendor</code> directory, make the php library available through the composer autoloaded, and also symlink the js library to be available in the directory set by <code>zoop-js-path</code>.</p>
 
-      </div>
-    </div>
+    <h2>Javascript</h2>
 
-    <div class="row-fluid">
-      <div class="span6">
-        <h2>Source from Github</h2>
-        <p><a class="btn btn-large btn-primary" href="https://github.com/zoopcommerce/mystique/zipball/master" >Download Mystique source</a></p>
-        <p>or gittish people:</p>
+    <h2>Standalone</h2>
+
+    <p>This is the simplest and fastest way to get started with Javascript. It is one single mimified Javascript file.</p>
+    <p><a class="btn btn-large" href="https://raw.github.com/zoopcommerce/mystique-js/master/dist/mystique.js">Download mystique.js</a></p>
+
+    <h2>Full sources with composer</h2>
+
+        <p>Add the following to your root <code>composer.json</code>:</p>
 <pre class="prettyprint linenums">
-git clone http://github.com/zoopcommerce/mystique
+"require": [
+    "zoopcommerce/mystique-js": "~1.2"
+],
+"extra": {"zoop-js-path": "public/js"}
 </pre>
-      </div>
-      <div class="span6">
-        <h2>Stand alone Javascript</h2>
-        <p>This is the simplest and fastest way to get started with Javascript. It is one single mimified Javascript file.</p>
-        <p><a class="btn btn-large" href="https://raw.github.com/zoopcommerce/mystique/master/js/dist/mystique.js">Download mystique.js</a></p>
-      </div>
-    </div>
 
+        <p>This will install the mystique sources in your vendor directory, and symlink them to <code>public/js</code>.</p>
+
+    <h2>Full sources manual install</h2>
+
+<pre class="prettyprint linenums">
+git clone http://github.com/zoopcommerce/mystique-js mystique
+git clone http://github.com/zoopcommerce/mystique mystique-common
+</pre>
+    
 </section>

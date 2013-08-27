@@ -7,22 +7,30 @@
     <meta name="description" content="">
     <meta name="author" content="Tim Roediger">
 
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="css/docs.css" rel="stylesheet">
     <link href="js/google-code-prettify/prettify.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="havokdocs.css">
+
+    <!-- Placed at the start of the document so require is available for examples -->
+    <script src="js/havokdocs.js"></script>
+        <script type="text/javascript">
+        require(['dojo/parser', 'dojo/domReady!'], function(parser){parser.parse()})
+    </script>
+
   </head>
 
   <body onload="prettyPrint()">
 
-    <!-- Navbar
-    ================================================== -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="./index.html">Mystique</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
+  <div class="navbar navbar-inverse navbar-fixed-top" data-dojo-type="havok/widget/NavBar">
+      <div class="container">
+        <a data-dojo-attach-point="toggleNode">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="./index.html">Havok</a>
+        <div data-dojo-attach-point="toggleTarget">
+            <ul class="nav" data-dojo-type="havok/widget/NavBarLinks">
               <li class="">
                 <a href="./index.html">Home</a>
               </li>
@@ -45,12 +53,12 @@
                 <a href="./extend.html">Extend</a>
               </li>
             </ul>
-          </div>
         </div>
       </div>
-    </div>
+  </div>
 
-    
+    <div id="contentWrapper" style="min-height: 1000px">
+
 <div class="jumbotron masthead">
   <div class="container">
     <h1>Mystique</h1>
@@ -69,7 +77,7 @@
         <a href="./extend.html">Extend</a>
       </li>
       <li>
-        Version 1.1.0
+        Version 1.2
       </li>
     </ul>
   </div>
@@ -129,6 +137,7 @@
 </div>
 </div>
 
+    </div>
 
     <!-- Footer
     ================================================== -->
@@ -147,11 +156,6 @@
       </div>
     </footer>
 
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/google-code-prettify/prettify.js"></script>
-    <script src="js/havok.js"></script>
-    <script type="text/javascript">
-        require(['dojo/parser'], function(parser){parser.parse()})
-    </script>
   </body>
 </html>
