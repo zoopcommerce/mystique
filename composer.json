@@ -12,6 +12,9 @@
     "require": {
         "zoopcommerce/pixie": "*"
     },
+    "require-dev": {
+        "zoopcommerce/havok"      : "~1.0"
+    },
     "autoload": {
         "psr-0": {
             "Zoop\\Mystique\\": "php/lib"
