@@ -1,8 +1,16 @@
 {
     "name": "mystique-common",
-    "version":"1.2",
+    "version":"1.2.1",
+    "repository" : {
+        "type" : "git",
+        "url" : "http://github.com/zoopcommerce/mystique"
+    },
     "description": "Support for the mystique validator library",
     "keywords": ["javaScript", "dojo", "validator", "zoop", "mystique"],
+	"dependencies": {
+	},
+	"devDependencies": {
+	},
     "homepage": "http://zoopcommerce.github.io/mystique",
     "dojoBuild": "mystique-common.profile.js"
 }
